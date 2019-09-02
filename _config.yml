@@ -1,2 +1,4 @@
-remote_theme: jekyllup/jekyll-theme-massively
+remote_theme: "mmistakes/minimal-mistakes@4.16.6"
 title: cbh.dev
+plugins:
+ - jekyll-include-cache
