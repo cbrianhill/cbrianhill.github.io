@@ -1,27 +1,17 @@
 ---
-defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
+classes:
+    - wide
 ---
 
 The Challenge
 =============
 
-I recently ran into an interesting challenge.  My company maintains suites of automated API tests in a [Maven][https://maven.apache.org] project, which
-we run using [JUnit][https://junit.org/junit4/].  We've been considering modernizing our Continuous Integration (CI) implementation and noticed that modern
-CI systems now commonly use [Docker][https://www.docker.com/] containers to implement their steps.
+I recently ran into an interesting challenge.  My company maintains suites of automated API tests in a [Maven](https://maven.apache.org) project, which
+we run using [JUnit](https://junit.org/junit4/).  We've been considering modernizing our Continuous Integration (CI) implementation and noticed that modern
+CI systems now commonly use [Docker](https://www.docker.com/) containers to implement their steps.
 
 As I considered how I would containerize our API test suites, I made the decision that I didn't want to abandon the functionality that Maven provides.
-The [Surefire Plugin][https://maven.apache.org/surefire/maven-surefire-plugin/], as one example, provides the framework of our entire test suite execution.
+The [Surefire Plugin](https://maven.apache.org/surefire/maven-surefire-plugin/), as one example, provides the framework of our entire test suite execution.
 Our tests, developed over the course of a few years, made assumptions that this would be their execution environment, and we use the test suite reporting,
 flow control, and test selection functionality that's part of the plugin.  We also rely on the parallel execution it supports.  I didn't want to replace
 any of that functionality...instead, I wanted this all to happen quickly and easily in a Docker container.
@@ -42,7 +32,7 @@ down to 12 seconds.
 Maven's Offline Mode
 ====================
 
-Maven's dependency plugin has an [offline mode][https://maven.apache.org/plugins/maven-dependency-plugin/go-offline-mojo.html] that I thought would be
+Maven's dependency plugin has an [offline mode](https://maven.apache.org/plugins/maven-dependency-plugin/go-offline-mojo.html) that I thought would be
 sufficient for making this happen.  To use it, you use the following goal:
 
 ```
@@ -66,7 +56,7 @@ The Recipe
 Maven Build
 -----------
 
-I used [docker-maven-plugin][https://github.com/fabric8io/docker-maven-plugin]  to allow me to create the container image from my Maven build.  The
+I used [docker-maven-plugin](https://github.com/fabric8io/docker-maven-plugin)  to allow me to create the container image from my Maven build.  The
 relevant section of the POM looks as follows:
 
 ```
