@@ -1,6 +1,7 @@
 ---
 classes:
     - wide
+excerpt: A quick recipe for getting a Maven project containing a test suite containerized, including all of its dependencies
 ---
 
 The Challenge
